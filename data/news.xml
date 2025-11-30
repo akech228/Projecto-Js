@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<news>
+  <item>
+    <title>Acción</title>
+    <date>24.11.2025</date>
+    <text>Bajos precios.</text>
+  </item>
+
+  <item>
+    <title>Tenemos vacaciones</title>
+    <date>16.11.2025</date>
+    <text>Vacaciones desde 10 a 15 de febrero</text>
+  </item>
+
+  <item>
+    <title>Nueva máquina</title>
+    <date>30.11.2025</date>
+    <text>Lanzamos una nueva máquina de impresión</text>
+  </item>
+</news>

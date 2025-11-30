@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printosaurio</title>
+  <link rel="stylesheet" href="./css/style.css">
+  
+</head>
+<body>
+
+  <!-- ХЕДЕР -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <img src="img/LogoHeaderEs.svg" alt="Printosaurio" class="header-logo">
+
+      <nav class="header-nav">
+        <a href="index.html">Inicio</a>
+        <a href="galeria.html">Galeria</a>
+        <a href="prepuesto.html">Prepuesto</a>
+        <a href="index.html#about">Sobre nosotros</a>
+        <a href="contacto.html">Contactos</a>
+      </nav>
+
+      <div class="header-right">
+        <div class="phone">+34-123-456-789</div>
+        <div class="email">correo@electronico.com</div>
+        <div class="address">Calle ..., Alicante, Espana</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- main parte -->
+  <main>
+
+    <!-- header-->
+    <section class="contacts-header">
+      <div class="container">
+        <h1>Contactos</h1>
+        <p class="lead">Póngase en contacto con nosotros o construya una ruta hasta la imprenta.</p>
+      </div>
+    </section>
+
+    <!--mapa -->
+    <section class="contacts-main">
+      <div class="container contacts-grid">
+
+        
+        <div class="contacts-info">
+          <h2>Cómo encontrarnos</h2>
+
+          <address>
+            123456, Alicante, España,<br>
+            Calle..., 1<br><br>
+            Teléfono: <a href="tel:+34-123-456-789">+34-123-456-789</a><br>
+            Email: <a href="mailto:correo@electronico.com">correo@electronico.com</a>
+          </address>
+
+          <h3>Construir ruta</h3>
+          <form id="route-form">
+            <label>
+              Su dirección:
+              <input type="text" name="from" placeholder="Por ejemplo: Calle Falsa, 123" required>
+            </label>
+            <button type="submit" class="btn btn--primary btn--large">
+              Construir ruta
+            </button>
+          </form>
+        </div>
+
+        <!--Google -->
+        <div class="contacts-map">
+          <h2 class="visually-hidden">Mapa y ruta</h2>
+
+          <!-- scrypt -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.079550892511!2d-3.693069723853829!3d40.43404017144333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4229300e4ffadb%3A0x27376e7d1a1bc6!2sC.%20de%20Albarrac%C3%ADn%2C%202%2C%2028016%20Madrid%2C%20Spain!5e0!3m2!1sen!2ses!4v1732478279274!5m2!1sen!2ses"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  
+  <footer class="site-footer">
+  <div class="container footer-inner">
+
+    <!-- left info -->
+    <div class="footer-col">
+      <img src="img/logoFooterEs.svg" alt="Принтозавр" class="footer-logo">
+      <p>123456, Alicante,<br>Calle..., Espana, 4</p>
+      <p>
+        +34 (123) 456-78-90<br>
+        <a href="mailto:correo@electronico.com">correo@electronico.com</a>
+      </p>
+    </div>
+
+    <!-- header -->
+    <div class="footer-col">
+      <h3>Servicios</h3>
+      <ul>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="prepuesto.html">Prepuesto</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+        <li><a href="contacto.html">Contactos</a></li>
+      </ul>
+    </div>
+
+    <!-- derecho -->
+    <div class="footer-col">
+      <h3>Pago</h3>
+      <p>Aceptamos tarjetas:</p>
+      <p>VISA · MasterCard · Bizum</p>
+    </div>
+
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2025 Printosaurio. Todos los derechos reservados.</p>
+    <p>Política de privacidad</p>
+  </div>
+</footer>
+
+</body>
+</html>

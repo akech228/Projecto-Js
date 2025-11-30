@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRINTOSAURIO</title>
+  <link rel="stylesheet" href="./css/style.css">
+  
+</head>
+<body>
+
+  
+  <header class="site-header">
+    <div class="container header-inner">
+      <img src="img/LogoHeaderEs.svg" alt="Printosaurio" class="header-logo">
+
+      <nav class="header-nav">
+        <a href="index.html">INICIO</a>
+        <a href="galeria.html">GALERÍA</a>
+        <a href="prepuesto.html">PREPUESTO</a>
+        <a href="index.html#about">SOBRE NOSOTROS</a>
+        <a href="contacto.html">CONTACTOS</a>
+      </nav>
+
+      <div class="header-right">
+        <div class="phone">+34-123-456-789</div>
+        <div class="email">correo@electronico.com</div>
+        <div class="address">Calle ..., Alicante, Espana</div>
+      </div>
+    </div>
+  </header>
+  <main>
+
+    <section class="contacts-header">
+      <div class="container">
+        <h1>Cálculo del presupuesto</h1>
+        <p class="lead">
+          Complete el formulario a continuación, elija el tipo de producto y las opciones adicionales.
+          El costo se calculará automáticamente.
+        </p>
+      </div>
+    </section>
+
+    <section class="contacts-main">
+      <div class="container">
+        <form id="budget-form">
+
+          <!-- Tabla contacto -->
+          <fieldset>
+            <legend>Sus datos</legend>
+
+            <label>
+              Nombre:
+              <input type="text" name="name" required>
+            </label>
+
+            <label>
+              Email:
+              <input type="email" name="email" required>
+            </label>
+
+            <label>
+              Teléfono:
+              <input type="tel" name="phone" required>
+            </label>
+          </fieldset>
+
+          <!-- scrypt cuenta -->
+          <fieldset>
+            <legend>Parámetros del pedido</legend>
+
+            <label>
+              Tipo de producto:
+              <select id="product" name="product" required>
+                <option value="">Seleccione una opción</option>
+                <option value="visitki" data-price="5">Tarjetas de visita</option>
+                <option value="broshury" data-price="8">Folletos</option>
+                <option value="plakaty" data-price="1.2">Carteles</option>
+              </select>
+            </label>
+
+            <label>
+              Cantidad (tirada):
+              <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+            </label>
+
+            <p>Opciones adicionales:</p>
+            <label>
+              <input type="checkbox" class="extra-option" data-price="3">
+              Pedido urgente
+            </label>
+            <label>
+              <input type="checkbox" class="extra-option" data-price="2">
+              Impresión a doble cara
+            </label>
+            <label>
+              <input type="checkbox" class="extra-option" data-price="4">
+              Ayuda con el diseño
+            </label>
+          </fieldset>
+
+          <!-- result -->
+          <fieldset>
+            <legend>Costo total</legend>
+
+            <p>Costo estimado: 
+              <output id="total">0</output> €
+            </p>
+
+            <label>
+              <input type="checkbox" id="agree">
+              Acepto los términos del tratamiento de datos personales
+            </label>
+          </fieldset>
+
+          <button type="submit" id="submit-btn" class="btn btn--primary btn--large" disabled>
+            Enviar solicitud
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  
+  <footer class="site-footer">
+  <div class="container footer-inner">
+
+    <!-- left info -->
+    <div class="footer-col">
+      <img src="img/LogoFooterEs.svg" alt="Printosaurio" class="footer-logo">
+      <p>123456, Alicante,<br>Calle..., Espana, 4</p>
+      <p>
+        +34 (123) 456-78-90<br>
+        <a href="mailto:correo@electronico.com">correo@electronico.com</a>
+      </p>
+    </div>
+
+    <!-- header -->
+    <div class="footer-col">
+      <h3>Servicios</h3>
+      <ul>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="prepuesto.html">Prepuesto</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+        <li><a href="contacto.html">Contactos</a></li>
+      </ul>
+    </div>
+
+    <!-- derecho -->
+    <div class="footer-col">
+      <h3>Pago</h3>
+      <p>Aceptamos tarjetas:</p>
+      <p>VISA · MasterCard · Bizum</p>
+    </div>
+
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2025 Printosaurio. Todos los derechos reservados.</p>
+    <p>Política de privacidad</p>
+  </div>
+</footer>
+
+  <!-- javas -->
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      var productSelect = document.getElementById('product');
+      var quantityInput = document.getElementById('quantity');
+      var extraCheckboxes = document.querySelectorAll('.extra-option');
+      var totalOutput = document.getElementById('total');
+      var agreeCheckbox = document.getElementById('agree');
+      var submitBtn = document.getElementById('submit-btn');
+
+      function calculateTotal() {
+        var quantity = parseInt(quantityInput.value, 10);
+        if (isNaN(quantity) || quantity < 1) {
+          quantity = 1;
+        }
+
+        var selectedOption = productSelect.options[productSelect.selectedIndex];
+        var basePrice = parseInt(selectedOption.getAttribute('data-price') || '0', 10);
+
+        var extras = 0;
+        extraCheckboxes.forEach(function (checkbox) {
+          if (checkbox.checked) {
+            var extraPrice = parseInt(checkbox.getAttribute('data-price') || '0', 10);
+            extras += extraPrice;
+          }
+        });
+
+        var total = (basePrice + extras) * quantity;
+        if (isNaN(total)) {
+          total = 0;
+        }
+
+        totalOutput.textContent = total;
+      }
+
+      // otro cuenta
+      productSelect.addEventListener('change', calculateTotal);
+      quantityInput.addEventListener('input', calculateTotal);
+      extraCheckboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', calculateTotal);
+      });
+
+      
+      agreeCheckbox.addEventListener('change', function () {
+        submitBtn.disabled = !agreeCheckbox.checked;
+      });
+
+      // resulto
+      calculateTotal();
+    });
+  </script>
+
+</body>
+</html>
